@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Version
+        run: echo "VERSION=1.0.${{ github.run_number }}" >> $GITHUB_ENV
+
+      - name: Build
+        run: dotnet build src/GamePointLogo.csproj -c Release -o out -p:Version=${{ env.VERSION }}
+
+      - name: Package
+        run: |
+          mkdir -p pkg/addons/counterstrikesharp/plugins/GamePointLogo
+          cp out/GamePointLogo.dll pkg/addons/counterstrikesharp/plugins/GamePointLogo/
+
+          mkdir -p pkg/addons/counterstrikesharp/configs/plugins/GamePointLogo/templates
+          cp configs/*.json pkg/addons/counterstrikesharp/configs/plugins/GamePointLogo/templates/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GamePointLogo-${{ env.VERSION }}
+          path: pkg/
