@@ -1,0 +1,40 @@
+{
+  "Enabled": true,
+  "Mode": "Panorama",
+  "Panorama": {
+    "LayoutPath": "panorama/layout/custom_game/gp_logo.xml",
+    "RootPanelId": "gpl-root",
+    "Size": "m",
+    "Position": "center",
+    "Opacity": 100,
+    "ShowText": true,
+    "Text": "GAMEPOINT.UZ"
+  },
+  "CenterHtml": { "LogoUrl": "", "LogoWidth": 256, "Text": "" },
+  "Display": {
+    "UpdateInterval": 0.5,
+    "ShowToDead": true,
+    "ShowToSpectators": true,
+    "DelayAfterDeath": 2.0,
+    "MaxShowTime": 0,
+    "ShowDuringWarmup": true,
+    "ShowDuringFreezeTime": true,
+    "ShowAfterRoundEnd": true,
+    "HideForFlags": []
+  },
+  "Player": {
+    "ToggleEnabled": true,
+    "ToggleCommands": ["css_logo"],
+    "ChatPrefix": "[GAMEPOINT] ",
+    "MsgLogoOn": "Логотип включён.",
+    "MsgLogoOff": "Логотип выключен."
+  },
+  "Compatibility": {
+    "PauseOnCommands": ["info", "help", "skins", "pws", "ws", "knife", "gloves", "store", "shop", "bp", "clan", "menu", "rtv", "guns", "awp", "ssg", "zeus"],
+    "PauseSeconds": 30,
+    "PauseCommand": "css_gplogo_pause",
+    "ResumeCommand": "css_gplogo_resume"
+  },
+  "Debug": false,
+  "ConfigVersion": 1
+}
