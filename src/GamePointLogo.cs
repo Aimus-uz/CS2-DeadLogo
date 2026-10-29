@@ -75,7 +75,7 @@ public class GamePointLogo : BasePlugin, IPluginConfig<GamePointLogoConfig>
     }
 
     private static bool IsRealPlayer(CCSPlayerController p) =>
-        p.IsValid && !p.IsBot && !p.IsHLTV && p.Connected == PlayerConnectedState.PlayerConnected;
+                p.IsValid && !p.IsBot && !p.IsHLTV && (long)p.Connected == 0;
 
     private bool ShouldShow(CCSPlayerController p, float now)
     {
