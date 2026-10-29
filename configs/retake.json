@@ -1,18 +1,13 @@
 {
   "Enabled": true,
-  "Mode": "Panorama",
-  "Panorama": {
-    "LayoutPath": "panorama/layout/custom_game/gp_logo.xml",
-    "RootPanelId": "gpl-root",
-    "Size": "m",
-    "Position": "center",
-    "Opacity": 100,
-    "ShowText": true,
-    "Text": "GAMEPOINT.UZ"
+  "CenterHtml": {
+    "Title": "",
+    "LogoUrl": "https://ВАША-ПУБЛИЧНАЯ-ССЫЛКА/gp_center_banner.png",
+    "LogoWidth": 280,
+    "Text": ""
   },
-  "CenterHtml": { "LogoUrl": "", "LogoWidth": 256, "Text": "" },
   "Display": {
-    "UpdateInterval": 0.5,
+    "UpdateInterval": 1.0,
     "ShowToDead": true,
     "ShowToSpectators": true,
     "DelayAfterDeath": 2.0,
