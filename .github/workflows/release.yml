@@ -32,9 +32,17 @@ jobs:
 
       - name: Package
         run: |
-          mkdir -p pkg/addons/counterstrikesharp/plugins/DeadLogo
-          cp out/DeadLogo.dll pkg/addons/counterstrikesharp/plugins/DeadLogo/
-          cd pkg && zip -r ../CS2-DeadLogo-${{ env.VERSION }}.zip .
+          mkdir -p pkg/addons/counterstrikesharp/plugins/GamePointLogo
+          cp out/GamePointLogo.dll pkg/addons/counterstrikesharp/plugins/GamePointLogo/
+
+          mkdir -p pkg/addons/counterstrikesharp/configs/plugins/GamePointLogo/templates
+          cp configs/*.json pkg/addons/counterstrikesharp/configs/plugins/GamePointLogo/templates/
+
+          (cd pkg && zip -r ../GamePointLogo-${{ env.VERSION }}.zip .)
+
+          mkdir -p addon
+          cp -r panorama addon/
+          (cd addon && zip -r ../GamePointLogo-addon-${{ env.VERSION }}.zip .)
 
       - name: Upload to release
         if: github.event_name == 'release'
