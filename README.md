@@ -1,31 +1,32 @@
-# CS2-DeadLogo
+# GamePointLogo
 
-Логотип сервера в центре экрана для мёртвых игроков и наблюдателей.
-При возрождении логотип пропадает.
+Баннер GAMEPOINT в центре экрана для мёртвых игроков и наблюдателей.
+При возрождении пропадает. KZ и Bhop: не ставится (в центре таймер).
 
-## Требования
-- CounterStrikeSharp
+Требования: CounterStrikeSharp 1.0.376+, .NET 10.
+
+## Сборка
+Actions → последний зелёный запуск → Artifacts → `GamePointLogo-1.0.X`
 
 ## Установка
-1. Скачайте `CS2-DeadLogo-<версия>.zip` из [Releases](../../releases).
-2. Распакуйте в `game/csgo/`.
-3. Перезапустите сервер. Конфиг создастся в:
-   `addons/counterstrikesharp/configs/plugins/DeadLogo/DeadLogo.json`
-4. Укажите `LogoUrl` (прямая https-ссылка на PNG) и выполните:
-   `css_plugins reload DeadLogo`
+1. Распаковать архив в `game/csgo/`.
+2. Из `configs/plugins/GamePointLogo/templates/` скопировать нужный файл
+   на уровень выше как `GamePointLogo.json`.
+3. Указать `LogoUrl` (публичная ссылка на PNG).
+4. `css_plugins reload GamePointLogo`
+
+| Шаблон | Сервер |
+|---|---|
+| mix.json | 5x5 MatchZy |
+| retake.json | Retake |
+| mini.json | Мини-игры |
+| awp.json | AWP Lego |
+| aim.json | Aim USP, Aim Redline |
+| surf.json | Surf (по желанию) |
 
 ## Команды
-| Команда | Кто | Описание |
+| Команда | Кто | Что делает |
 |---|---|---|
-| `!logo` / `css_logo` | игрок | Включить/выключить логотип для себя |
-| `css_deadlogo_pause <slot\|all> <сек>` | сервер / @css/root | Поставить логотип на паузу |
-
-## Совместимость с HUD/меню
-Центр экрана (center HTML) в CS2 один на всех: если два плагина пишут туда одновременно, они перебивают друг друга.
-- `PauseOnCommands`: при вводе этих команд (`!sprays`, `!ws`...) логотип у игрока скрывается на `PauseSeconds`.
-- `DelayAfterDeath` / `MaxShowTime`: можно разделить время с другим HUD.
-- `ClearOnSpawn`: стирает только логотип, показанный этим плагином.
-- Другие плагины могут вызвать `css_deadlogo_pause <slot> <сек>`.
-
-## Откат версии
-Все старые версии лежат в Releases. Скачайте нужный ZIP и замените файлы.
+| `!logo` | игрок | вкл/выкл баннер для себя |
+| `css_gplogo_pause <slot\|all> <сек>` | сервер / @css/root | пауза |
+| `css_gplogo_resume <slot\|all>` | сервер / @css/root | снять паузу |
