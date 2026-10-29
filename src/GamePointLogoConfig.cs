@@ -5,19 +5,15 @@ namespace GamePointLogo;
 
 public class CenterHtmlSettings
 {
-    // Заголовок над картинкой (HTML). Пусто = без заголовка
     [JsonPropertyName("Title")]
     public string Title { get; set; } = "";
 
-    // Прямая ПУБЛИЧНАЯ https-ссылка на PNG-баннер
     [JsonPropertyName("LogoUrl")]
     public string LogoUrl { get; set; } = "";
 
-    // Ширина баннера в рамке
     [JsonPropertyName("LogoWidth")]
     public int LogoWidth { get; set; } = 280;
 
-    // Подпись под картинкой (HTML). Пусто = без подписи
     [JsonPropertyName("Text")]
     public string Text { get; set; } = "";
 }
@@ -36,7 +32,6 @@ public class DisplaySettings
     [JsonPropertyName("DelayAfterDeath")]
     public float DelayAfterDeath { get; set; } = 3.0f;
 
-    // 0 = показывать до возрождения
     [JsonPropertyName("MaxShowTime")]
     public float MaxShowTime { get; set; } = 0f;
 
