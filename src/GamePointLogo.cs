@@ -51,8 +51,6 @@ public class GamePointLogo : BasePlugin, IPluginConfig<GamePointLogoConfig>
         Log($"Loaded v{ModuleVersion}");
     }
 
-    // ================= main loop =================
-
     private void Tick()
     {
         var html = BuildHtml();
@@ -139,8 +137,6 @@ public class GamePointLogo : BasePlugin, IPluginConfig<GamePointLogoConfig>
         if (clearCenter) p.PrintToCenterHtml(" ", 1);
     }
 
-    // ================= events =================
-
     private HookResult OnPlayerDeath(EventPlayerDeath e, GameEventInfo info)
     {
         var p = e.Userid;
@@ -173,8 +169,6 @@ public class GamePointLogo : BasePlugin, IPluginConfig<GamePointLogoConfig>
         _pausedUntil.Remove(slot);
         _visible.Remove(slot);
     }
-
-    // ================= commands =================
 
     private static bool NotEmpty(string? s) => !string.IsNullOrWhiteSpace(s);
 
